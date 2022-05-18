@@ -1,7 +1,9 @@
+from re import template
 from django.shortcuts import render
-
+from django.template import loader
 from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello")
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render())
